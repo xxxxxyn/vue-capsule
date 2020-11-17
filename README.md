@@ -5,6 +5,7 @@
 # 使用
 
 ```
+属性：
 相对长度使用percentage或 max + num 皆可
 percentage 占比
 max 最大值
@@ -14,5 +15,7 @@ showLabel
 text  右标签
 showText
 innerheight 内柱高（需要加单位）
+事件：
+clickCapsule
 
 ```
