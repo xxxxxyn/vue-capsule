@@ -15,7 +15,9 @@ showLabel
 text  右标签
 showText
 innerheight 内柱高（需要加单位）
+isAnimated 初始化是否有动画
 事件：
 clickCapsule
+
 
 ```

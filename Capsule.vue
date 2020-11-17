@@ -2,7 +2,7 @@
   <div class="capsule-bar default-theme">
     <span class="capsule-bar-label" v-if="showLabel">{{label}}</span>
     <div class="capsule-bar-outer" @click="clickCapsule()">
-      <div class="capsule-bar-inner" :style="InnerBarStyle"></div>
+      <div :class="{'capsule-bar-inner':true,'animate-move':isAnimated}" :style="InnerBarStyle"></div>
     </div>
     <span class="capsule-bar-text" v-if="showText">{{text}}</span>
   </div>
@@ -28,7 +28,6 @@
       },
       innerheight: {
         default: "82%",
-        required: true,
       },
       percentage: {
         type: Number,
@@ -43,6 +42,9 @@
         type: Number,
         default: 80,
       },
+      isAnimated:{
+        default: true,
+      }
     },
     computed: {
       InnerBarStyle() {
@@ -57,7 +59,6 @@
       }
     },
     created() {
-      console.log(this.num,this.max,(this.num / this.max) + '%')
     },
     methods: {
       clickCapsule() {
@@ -70,7 +71,6 @@
 <style lang="less" scoped>
   .capsule-bar.default-theme {
     color: #ffffff;
-
   }
 
   .capsule-bar {
@@ -108,6 +108,28 @@
       display: inline-block;
       width: 100px;
       text-align: center;
+    }
+  }
+
+  .animate-move{
+
+    animation: init-move 2s linear normal;
+  }
+
+  @keyframes init-move {
+    0% {
+      transform-origin:left top;
+      transform: scaleX(0.1) translateY(-50%);
+
+    }
+    50% {
+      transform-origin:left top;
+      transform:  scaleX(0.75) translateY(-50%);
+    }
+
+    100% {
+      transform-origin:left top;
+      transform: scaleX(1) translateY(-50%);
     }
   }
 
