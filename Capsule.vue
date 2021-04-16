@@ -32,7 +32,7 @@
       percentage: {
         type: Number,
         default: -1,
-        validator: val => val >= 0 && val <= 100
+        validator: val => val >= 0 && val <= 100||-1
       },
       max: {
         type: Number,
